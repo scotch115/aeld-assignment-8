@@ -12,7 +12,13 @@
    	echo "Loading custom scull module"
    	cd /etc/scull
      ./scull_load scull
-     ;;
+
+    echo "========================================================="
+    echo "ATTEMPTING TO LOAD AESDCHAR FROM LDDMODULES START SCRIPT"
+    echo "========================================================="
+    # insmod /lib/modules/$(uname -r)/extra/aesdchar.ko
+    /usr/bin/aesdchar_load
+    ;;
    stop)
      echo "Unloading custom Linux driver module(s)"
    	/etc/misc-modules/module_unload faulty
