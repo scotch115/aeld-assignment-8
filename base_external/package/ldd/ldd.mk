@@ -10,8 +10,7 @@ LDD_VERSION = '22fdc0d1aac29cd1980b1cd93706bbfc72049a2f'
 LDD_SITE = 'git@github.com:scotch115/aeld-assignment-7.git'
 LDD_SITE_METHOD = git
 LDD_GIT_SUBMODULES = YES
-LDD_MODULE_SUBDIRS = misc-modules/
-LDD_MODULE_SUBDIRS += scull/
+LDD_MODULE_SUBDIRS = misc-modules scull
 LDD_MODULE_MAKE_OPTS = KVERSION=$(LINUX_VERSION_PROBED)
 
 # TODO: Update build comments
@@ -38,5 +37,6 @@ define LDD_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/scull/scull_load $(TARGET_DIR)/etc/scull
 	$(INSTALL) -m 0755 $(@D)/scull/scull_unload $(TARGET_DIR)/etc/scull
 endef
+
 $(eval $(kernel-module))
 $(eval $(generic-package))
